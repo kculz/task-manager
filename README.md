@@ -82,3 +82,39 @@
 }
 ```
 
+
+## Update Request
+
+#### Update task
+
+### PUT: {{Domain}}/api/v1/2
+
+### Json Request
+
+```
+{
+    "title": "Updated Task",
+    "is_done": true
+}
+```
+
+### Json Response
+
+```
+{
+    "data": {
+        "id": 2,
+        "title": "Updated task",
+        "is_done": true,
+        "created_at": "2023-10-03T07:15:43.000000Z",
+        "status": "completed"
+    }
+}
+```
+
+## Update Request
+
+#### Update task
+
+### DELETE: {{Domain}}/api/v1/2
+
