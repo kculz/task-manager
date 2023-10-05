@@ -15,3 +15,4 @@ Route::post('register', [AuthController::class, 'register']);
 
 
 require __DIR__.'/v1/task.php';
+require __DIR__.'/v1/projects.php';
