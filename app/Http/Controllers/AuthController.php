@@ -24,8 +24,28 @@ class AuthController extends Controller
          $user = User::where('email', $validated['email'])->first();
 
          return response()->json([
+            'message' => 'Logged in successfully',
             'access_token' => $user->createToken('api_token')->plainTextToken,
             'token_type' => 'Bearer'
-         ]);
+         ],200);
+    }
+
+    public function register(Request $request){
+      
+      $validated = $request->validate([
+         'name'=>'required|max:255',
+         'email'=>'required|max:255|email|unique:users,email',
+         'password'=>'required|confirmed|min:8',
+
+      ]);
+
+      $user = User::create($validated);
+
+      return response()->json([
+         'message' => 'New user registered',
+         'data' => $user,
+         'access_token' => $user->createToken('api_token')->plainTextToken,
+         'token_type' => 'Bearer' 
+      ],201);
     }
 }
