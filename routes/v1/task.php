@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
 
-Route::group(['prefix' => 'v1'], function(){
-    Route::apiResource('tasks', TaskController::class)->only('index', 'show', 'store', 'update', 'destroy');
-}); 
+Route::group(['prefix' => 'v1', 'middleware' => ['auth:sanctum', EnsureFrontendRequestsAreStateful::class]], function () {
+    Route::apiResource('tasks', TaskController::class);
+});
