@@ -29,6 +29,10 @@ class Task extends Model
         return $this->belongsTo(User::class, 'creator_id');
     }
 
+    public function project():BelongsTo{
+        return $this->belongsTo(Project::class);
+    }
+
     protected static function booted(): void{
         static::addGlobalScope('creator', function(Builder $builder){
             $builder->where('creator_id', Auth::id());
