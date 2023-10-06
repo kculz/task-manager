@@ -1,3 +1,4 @@
+The task manager project API in Laravel is a backend system that allows users to manage and organize their projects and tasks within those projects.
 # Requests
 
 #### The default Domain for Laravel is http://127.0.0.1:8000
