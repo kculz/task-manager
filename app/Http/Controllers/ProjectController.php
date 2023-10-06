@@ -42,7 +42,7 @@ class ProjectController extends Controller
 
         $project -> update($validated);
 
-        return (new ProjectResource($project))->load('tasks');
+        return (new ProjectResource($project))->load('tasks')->load('members');
     }
 
     public function destroy(Request $request, Project $project){
